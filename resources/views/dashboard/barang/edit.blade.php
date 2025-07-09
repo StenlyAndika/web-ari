@@ -1,31 +1,32 @@
 <!-- Modal Toggle -->
-<div x-data="{ tambah_barang: false }">
+<div x-data="{ edit_barang: false }">
     <!-- Open Button -->
-    <button @click="tambah_barang = true" class="px-4 py-2 text-white bg-primary text-sm font-bold rounded hover:bg-blue-700">
-        Data Baru
+    <button @click="edit_barang = true" class="px-4 py-2 text-white bg-primary text-sm font-bold rounded hover:bg-blue-700">
+        Ubah
     </button>
 
     <!-- Modal Backdrop -->
     <div
-        x-show="tambah_barang"
+        x-show="edit_barang"
         x-transition.opacity
         class="fixed inset-0 bg-black bg-opacity-50 z-40"
-        @click="tambah_barang = false"
+        @click="edit_barang = false"
     ></div>
 
     <!-- Modal Box -->
     <div
-        x-show="tambah_barang"
+        x-show="edit_barang"
         x-transition
         class="fixed inset-0 flex items-center justify-center z-50"
     >
         <div
-            @click.away="tambah_barang = false"
+            @click.away="edit_barang = false"
             class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg"
         >
-            <h2 class="text-xl font-semibold mb-4">Data Baru</h2>
-            <form method="post" action="{{ route('admin.barang.store') }}" autocomplete="off" class="space-y-2">
+            <h2 class="text-xl font-semibold mb-4">Ubah Data Barang</h2>
+            <form method="post" action="{{ route('admin.barang.update', $item->id) }}" autocomplete="off" class="space-y-2">
                 @csrf
+                @method('put')
 
                 <!-- Nama Barang -->
                 <div class="relative">
@@ -33,7 +34,7 @@
                         id="nama"
                         name="nama"
                         type="text"
-                        placeholder=" "
+                        value="{{ $item->nama }}"
                         required
                         class="peer w-full border border-gray-300 bg-white px-4 pt-6 pb-2 text-gray-900 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                     />
@@ -56,8 +57,8 @@
                         class="peer w-full border border-gray-300 bg-white px-4 pt-6 pb-2 text-gray-900 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                     >
                         <option disabled selected value="">-- Pilih --</option>
-                        @foreach ($satuan as $item)
-                            <option value="{{ $item }}">{{ $item }}</option>
+                        @foreach ($satuan as $itemx)
+                            <option value="{{ $itemx }}" {{ $item->satuan == $itemx ? 'selected' : '' }}>{{ $itemx }}</option>
                         @endforeach
                     </select>
                     <label
@@ -77,7 +78,7 @@
                         id="harga"
                         name="harga"
                         type="text"
-                        placeholder=" "
+                        value="{{ $item->harga }}"
                         required
                         class="peer w-full border border-gray-300 bg-white px-4 pt-6 pb-2 text-gray-900 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                     />
@@ -97,7 +98,7 @@
                         id="stok"
                         name="stok"
                         type="text"
-                        placeholder=" "
+                        value="{{ $item->stok }}"
                         required
                         class="peer w-full border border-gray-300 bg-white px-4 pt-6 pb-2 text-gray-900 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                     />
@@ -117,7 +118,7 @@
                         class="bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg px-5 py-2.5 text-sm shadow-sm transition">
                         Simpan
                     </button>
-                    <button type="button" @click="tambah_barang = false"
+                    <button type="button" @click="edit_barang = false"
                         class="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg px-5 py-2.5 text-sm shadow-sm transition">
                         Batal
                     </button>

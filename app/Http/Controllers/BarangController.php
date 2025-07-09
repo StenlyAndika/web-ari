@@ -53,11 +53,27 @@ class BarangController extends Controller
 
     public function update(Request $request, string $id)
     {
-        //
+        $request->merge([
+            'harga' => str_replace(['Rp.', '.', ' '], '', $request->harga),
+        ]);
+
+        $rules = [
+            'nama' => 'required',
+            'satuan' => 'required',
+            'harga' => 'required|numeric',
+            'stok' => 'required|numeric',
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        Barang::where('id', $id)->update($validatedData);
+
+        return redirect()->route('admin.barang.index')->with('toast_success', 'Data berhasil diupdate!');
     }
 
     public function destroy(string $id)
     {
-        //
+        Barang::where('id', $id)->delete();
+        return redirect()->route('admin.barang.index')->with('toast_success', 'Data berhasil dihapus!');
     }
 }

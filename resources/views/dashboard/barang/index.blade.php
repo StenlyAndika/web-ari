@@ -4,7 +4,33 @@
 <div class="bg-white w-full rounded-lg shadow-sm border border-gray-200">
     <div id="sticky-banner" tabindex="-1" class="w-full border-l-4 bg-gray-100 border-accent pl-4 pr-4 my-6">
         <div class="flex items-center justify-between flex-wrap gap-4">
-            <h1 class="text-2xl font-semibold text-gray-900">{{ $title }}</h1>
+            <div class="flex py-4 px-2">
+                <p class="text-gray-600 dark:text-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                    </svg>
+                </p>
+
+                <span class="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+
+                <p class="flex items-center text-gray-600 -px-2">
+                    <span class="mx-2">Master</span>
+                </p>
+
+                <span class="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </span>
+
+                <p class="flex items-center text-gray-600 -px-2">
+                    <span class="mx-2">Data Barang</span>
+                </p>
+            </div>
             @include('dashboard.barang.add')
         </div>
     </div>
@@ -46,7 +72,6 @@
             <tr>
                 <th class="px-6 py-4">No</th>
                 <th class="px-6 py-4">Nama Barang</th>
-                <th class="px-6 py-4">Satuan</th>
                 <th class="px-6 py-4">Harga</th>
                 <th class="px-6 py-4">Stok</th>
                 <th class="px-6 py-4">Opsi</th>
@@ -57,13 +82,12 @@
                 <tr>
                     <td class="px-6 py-3 font-medium text-gray-900">{{ $loop->iteration }}</td>
                     <td class="px-6 py-3">{{ $item->nama }}</td>
-                    <td class="px-6 py-3">{{ $item->satuan }}</td>
                     <td class="px-6 py-3">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                    <td class="px-6 py-3">{{ $item->stok }}</td>
+                    <td class="px-6 py-3">{{ $item->stok . ' ' . $item->satuan }}</td>
                     <td class="px-6 py-3">
                         <div class="flex space-x-2">
-                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                            <a href="#" class="text-red-600 hover:underline">Delete</a>
+                            @include('dashboard.barang.edit')
+                            @include('dashboard.barang.delete')
                         </div>
                     </td>
                 </tr>
