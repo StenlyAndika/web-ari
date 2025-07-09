@@ -9,6 +9,7 @@
     <title>{{ $title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://cdn.datatables.net/1.13.6/css/dataTables.tailwind.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -41,7 +42,6 @@
         x-data="{
             sidebarOpen: true,
             masterDataOpen: false,
-            profileOpen: false,
             toggleSidebar() {
                 this.sidebarOpen = !this.sidebarOpen;
             }
@@ -52,10 +52,7 @@
         @include('partials.navigation')
             <!-- Main content -->
             <main class="flex-1 p-6 bg-gray-50">
-                <!-- Dashboard Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-                    @yield('container')
-                </div>
+                @yield('container')
             </main>
             <!-- Sticky Footer -->
             <footer class="bg-gray-50 text-sm text-gray-600 px-6 py-3 text-center mt-auto">
@@ -66,21 +63,52 @@
     @else
         @yield('containerlogin')
     @endif
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.tailwind.min.js"></script>
     <script>
-        if ($('#search-table').length) {
-            new simpleDatatables.DataTable('#search-table', {
-                searchable: true
-            });
-        }
-        if ($('#default-table').length) {
-            new simpleDatatables.DataTable('#default-table', {
-                searchable: false,
-                paging: false,
-                footer: false
-            });
+        setTimeout(() => {
+            const alert = document.getElementById('alertDialog');
+            if (alert) {
+                alert.style.opacity = '0';
+                alert.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    alert.style.display = 'none';
+                }, 300);
+            }
+        }, 5000);
+
+        $('#search-table').DataTable({
+            responsive: true,
+            language: {
+                zeroRecords: "Data tidak ditemukan",
+            }
+        });
+
+        const hargaInput = document.getElementById('harga');
+
+        hargaInput.addEventListener('input', function (e) {
+            let value = this.value.replace(/[^0-9]/g, '');
+            if (value) {
+                this.value = formatRupiah(value);
+            } else {
+                this.value = '';
+            }
+        });
+
+        function formatRupiah(angka) {
+            let number_string = angka.replace(/[^,\d]/g, '').toString(),
+                split = number_string.split(','),
+                sisa = split[0].length % 3,
+                rupiah = split[0].substr(0, sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            if (ribuan) {
+                let separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
+
+            return 'Rp. ' + rupiah;
         }
     </script>
 </body>

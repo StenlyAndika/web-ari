@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -22,4 +23,9 @@ Route::post('/generate', [AuthController::class, 'generate'])->name('generateadm
 Route::middleware(['admin'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/admin/master/barang', [BarangController::class, 'index'])->name('admin.barang.index');
+    Route::post('/admin/master/barang', [BarangController::class, 'store'])->name('admin.barang.store');
+    Route::put('/admin/master/barang/{id}', [BarangController::class, 'update'])->name('admin.barang.update');
+    Route::delete('/admin/master/barang/{id}', [BarangController::class, 'destroy'])->name('admin.barang.destroy');
 });

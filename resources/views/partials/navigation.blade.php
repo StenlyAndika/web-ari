@@ -24,7 +24,7 @@
             <i class="material-icons text-white text-lg">person</i>
         </div>
         <div class="ml-3">
-            <h3 class="font-medium text-gray-700 text-sm">Admin User</h3>
+            <h3 class="font-medium text-gray-700 text-sm">{{ auth()->user()->nama }}</h3>
             <p class="text-gray-700 text-xs">Administrator</p>
         </div>
     </div>
@@ -33,16 +33,16 @@
     <nav class="mt-2">
         <ul class="space-y-1 px-3">
             <li>
-                <a href="#" class="flex items-center px-3 py-2 rounded-md bg-primary text-white font-medium text-sm border-l-4 border-accent">
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('dashboard') ? 'bg-primary text-white border-l-4 border-accent' : 'bg-white text-gray-700 hover:text-primary' }}">
                     <i class="material-icons mr-3 text-lg">dashboard</i>
                     <span>Dashboard</span>
                 </a>
             </li>
 
-            <li>
+            <li x-data="{ masterDataOpen: {{ Request::is('admin/master/barang*') ? 'true' : 'false' }} }">
                 <div
                     @click="masterDataOpen = !masterDataOpen"
-                    class="flex items-center px-3 py-2 rounded-md hover:text-primary cursor-pointer text-gray-700 font-medium text-sm transition-colors"
+                    class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors bg-white text-gray-700 hover:text-primary"
                 >
                     <i class="material-icons mr-3 text-lg">folder</i>
                     <span>Data Master</span>
@@ -57,7 +57,7 @@
                     x-collapse
                     class="ml-6 mt-1 space-y-1"
                 >
-                    <a href="#" class="flex items-center px-3 py-2 rounded-md hover:text-primary cursor-pointer text-gray-700 font-medium text-sm transition-colors">
+                    <a href="{{ route('admin.barang.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/barang*') ? 'bg-primary text-white border-l-4 border-accent' : 'bg-white text-gray-700 hover:text-primary' }}">
                         <i class="material-icons mr-3 text-base">description</i>
                         Data Barang
                     </a>

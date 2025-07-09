@@ -2,33 +2,33 @@
 
 @section('containerlogin')
     @if (session('toast_success'))
-        <div id="alertDialog"
-            class="flex items-center w-full max-w-xs p-4 mb-4 text-emerald-800 bg-emerald-50 rounded-xl shadow-lg border border-emerald-200 fixed bottom-5 right-5 z-50"
-            role="alert">
-            <div
-                class="inline-flex items-center justify-center flex-shrink-0 w-10 h-10 text-emerald-600 bg-emerald-100 rounded-lg">
-                <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                    viewBox="0 0 20 20">
-                    <path
-                        d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+        <div id="alertDialog" class="flex w-full max-w-xs bg-white rounded-lg shadow-md fixed bottom-5 right-5" role="alert">
+            <div class="inline-flex items-center justify-center w-12 bg-emerald-500 rounded-l-lg">
+                <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 3.33331C10.8 3.33331 3.33337 10.8 3.33337 20C3.33337 29.2 10.8 36.6666 20 36.6666C29.2 36.6666 36.6667 29.2 36.6667 20C36.6667 10.8 29.2 3.33331 20 3.33331ZM16.6667 28.3333L8.33337 20L10.6834 17.65L16.6667 23.6166L29.3167 10.9666L31.6667 13.3333L16.6667 28.3333Z" />
                 </svg>
-                <span class="sr-only">Success icon</span>
             </div>
-            <div class="ms-3 text-sm font-semibold">{{ session('toast_success') }}</div>
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                    <span class="font-semibold text-emerald-500">Success</span>
+                    <p class="text-sm text-gray-600">{{ session('toast_success') }}</p>
+                </div>
+            </div>
         </div>
     @endif
     @if (session('toast_error'))
-        <div id="alertDialog"
-            class="flex items-center w-full max-w-xs p-4 mb-4 text-red-800 bg-red-50 rounded-xl shadow-lg border border-red-200 fixed bottom-5 right-5 z-50"
-            role="alert">
-            <div
-                class="inline-flex items-center justify-center flex-shrink-0 w-10 h-10 text-red-600 bg-red-100 rounded-lg">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                    <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z" clip-rule="evenodd" />
+        <div id="alertDialog" class="flex w-full max-w-xs bg-white rounded-lg shadow-md fixed bottom-5 right-5" role="alert">
+            <div class="inline-flex items-center justify-center w-12 bg-red-500 rounded-l-lg">
+                <svg class="w-6 h-6 text-white fill-current" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 3.36667C10.8167 3.36667 3.3667 10.8167 3.3667 20C3.3667 29.1833 10.8167 36.6333 20 36.6333C29.1834 36.6333 36.6334 29.1833 36.6334 20C36.6334 10.8167 29.1834 3.36667 20 3.36667ZM19.1334 33.3333V22.9H13.3334L21.6667 6.66667V17.1H27.25L19.1334 33.3333Z" />
                 </svg>
-                <span class="sr-only">Error icon</span>
             </div>
-            <div class="ms-3 text-sm font-semibold">{{ session('toast_error') }}</div>
+            <div class="px-4 py-2 -mx-3">
+                <div class="mx-3">
+                    <span class="font-semibold text-red-500">Error</span>
+                    <p class="text-sm text-gray-600">{{ session('toast_error') }}</p>
+                </div>
+            </div>
         </div>
     @endif
 
@@ -139,18 +139,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        // Auto-hide toast notifications
-        setTimeout(() => {
-            const alert = document.getElementById('alertDialog');
-            if (alert) {
-                alert.style.opacity = '0';
-                alert.style.transform = 'translateY(20px)';
-                setTimeout(() => {
-                    alert.style.display = 'none';
-                }, 300);
-            }
-        }, 5000);
-    </script>
 @endsection

@@ -21,7 +21,7 @@ class AuthController extends Controller
     {
         $validated['username'] = 'admin';
         $validated['password'] = bcrypt('admin');
-        $validated['nama'] = 'Admin';
+        $validated['nama'] = 'Edward Sarden';
         $validated['is_admin'] = 1;
 
         User::create($validated);
@@ -46,7 +46,7 @@ class AuthController extends Controller
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/dashboard')->with('toast_success', 'Login Berhasil<br>Selamat Datang '.ucfirst(auth()->user()->username));
+            return redirect()->intended('/dashboard')->with('toast_success', 'Selamat Datang '.ucfirst(auth()->user()->nama));
         }
 
         return back()->with('toast_error', 'Login Gagal, Username atau Password salah!');
