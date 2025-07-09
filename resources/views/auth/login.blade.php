@@ -32,41 +32,36 @@
         </div>
     @endif
 
-    <div class="min-h-screen bg-[#0B1D51]">
-        <div class="flex min-h-screen flex-col justify-center px-6 py-12 lg:px-8">
-            <!-- Logo and Header Section -->
-            <div class="sm:mx-auto sm:w-full sm:max-w-md">
-                <div class="text-center mb-8">
-                    <div class="relative inline-block">
-                        <div class="bg-white p-4 rounded-2xl shadow-lg mb-6">
-                            <img class="mx-auto h-12 w-auto"
-                                 src="img/tablogo.png"
-                                 alt="Minimarket Iwel Logo" />
-                        </div>
+    <div class="min-h-screen bg-gradient-to-br from-primary to-secondary">
+        <div class="flex min-h-screen items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+            <div class="w-full max-w-md space-y-8">
+
+                <!-- Header Section -->
+                <div class="text-center">
+                    <div class="mx-auto h-20 w-20 bg-white rounded-full shadow-lg flex items-center justify-center mb-6 ring-8 ring-indigo-50">
+                        <img class="h-10 w-10 object-contain" src="img/tablogo.png" alt="Minimarket Iwel Logo" />
                     </div>
-                    <h1 class="mt-4 text-4xl font-bold text-white tracking-tight">
+                    <h1 class="text-3xl font-bold text-white tracking-tight">
                         Minimarket Iwel
                     </h1>
-                    <p class="mt-3 text-lg text-white font-medium">
+                    <p class="mt-2 text-sm text-white">
                         Welcome back! Please sign in to continue
                     </p>
                 </div>
-            </div>
 
-            <!-- Login Form -->
-            <div class="sm:mx-auto sm:w-full sm:max-w-md">
-                <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-8">
+                <!-- Login Card -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
                     <form class="space-y-6" action="{{ route('auth') }}" method="post">
                         @csrf
 
                         <!-- Username Field -->
-                        <div>
-                            <label for="username" class="block text-sm font-semibold text-slate-700 mb-2">
+                        <div class="space-y-2">
+                            <label for="username" class="block text-sm font-medium text-gray-700">
                                 Username
                             </label>
-                            <div class="relative">
+                            <div class="relative group">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="h-5 w-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                                     </svg>
                                 </div>
@@ -75,19 +70,19 @@
                                        id="username"
                                        autocomplete="username"
                                        required
-                                       class="block w-full pl-10 pr-3 py-3 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200"
+                                       class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                                        placeholder="Enter your username" />
                             </div>
                         </div>
 
                         <!-- Password Field -->
-                        <div>
-                            <label for="password" class="block text-sm font-semibold text-slate-700 mb-2">
+                        <div class="space-y-2">
+                            <label for="password" class="block text-sm font-medium text-gray-700">
                                 Password
                             </label>
-                            <div class="relative">
+                            <div class="relative group">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                    <svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="h-5 w-5 text-gray-400 group-focus-within:text-indigo-500 transition-colors duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                                     </svg>
                                 </div>
@@ -96,43 +91,50 @@
                                        id="password"
                                        autocomplete="current-password"
                                        required
-                                       class="block w-full pl-10 pr-3 py-3 border border-slate-300 rounded-xl text-slate-900 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors duration-200"
+                                       class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 bg-gray-50 focus:bg-white"
                                        placeholder="Enter your password" />
                             </div>
                         </div>
 
                         <!-- Sign In Button -->
-                        <div class="pt-4">
+                        <div class="pt-2">
                             <button type="submit"
-                                    class="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 rounded-xl shadow-lg transition-all duration-200 transform hover:scale-[1.02]">
-                                <span class="flex items-center">
-                                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
+                                <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                    <svg class="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                                     </svg>
-                                    Sign in to your account
                                 </span>
+                                Sign in to your account
                             </button>
                         </div>
                     </form>
 
                     <!-- Generate Admin Button -->
                     @can('checkadmin')
-                        <div class="mt-6 pt-6 border-t border-slate-200">
+                        <div class="mt-6 pt-6 border-t border-gray-200">
                             <form action="{{ route('generateadmin') }}" method="post">
                                 @csrf
                                 @method('post')
                                 <button type="submit"
-                                        class="w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 rounded-xl shadow-lg transition-all duration-200 transform hover:scale-[1.02]">
-                                    <span class="flex items-center">
-                                        <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-emerald-600 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500 transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-lg hover:shadow-xl">
+                                    <span class="absolute left-0 inset-y-0 flex items-center pl-3">
+                                        <svg class="h-5 w-5 text-emerald-500 group-hover:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                         </svg>
-                                        Generate Admin Account
                                     </span>
+                                    Generate Admin Account
                                 </button>
                             </form>
                         </div>
                     @endcan
+                </div>
+
+                <!-- Footer -->
+                <div class="text-center">
+                    <p class="text-xs text-white">
+                        Secure login powered by Minimarket Iwel
+                    </p>
                 </div>
             </div>
         </div>

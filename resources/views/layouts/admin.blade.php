@@ -5,23 +5,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="icon" href="/img/tablogo.webp">
     <title>{{ $title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#60B5FF',
+                        secondary: '#60B5FF',
+                        tertiary: '#FFECDB',
+                        accent: '#FF9149',
+                        dark: '#1E293B',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8fafc;
+        }
+        [x-cloak] { display: none !important; }
+    </style>
 </head>
 
 <body>
     @if (auth()->user())
-        @include('partials.nav')
-        <div class="p-4 sm:ml-64 mt-16">
-            <div class="w-full p-4 text-center bg-white border border-gray-200 rounded-lg shadow">
-                @yield('container')
-            </div>
+    <div
+        x-data="{
+            sidebarOpen: true,
+            masterDataOpen: false,
+            profileOpen: false,
+            toggleSidebar() {
+                this.sidebarOpen = !this.sidebarOpen;
+            }
+        }"
+        x-cloak
+        class="min-h-screen flex"
+    >
+        @include('partials.navigation')
+            <!-- Main content -->
+            <main class="flex-1 p-6 bg-gray-50">
+                <!-- Dashboard Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                    @yield('container')
+                </div>
+            </main>
+            <!-- Sticky Footer -->
+            <footer class="bg-gray-50 text-sm text-gray-600 px-6 py-3 text-center mt-auto">
+                &copy; 2025 Minimarket Iwel. All rights reserved.
+            </footer>
         </div>
+    </div>
     @else
         @yield('containerlogin')
     @endif
