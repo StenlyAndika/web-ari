@@ -18,7 +18,7 @@
                     </span>
 
                     <p class="flex items-center text-gray-600 -px-2">
-                        <span class="mx-2">Master</span>
+                        <span class="mx-2">Transaksi</span>
                     </p>
 
                     <span class="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
@@ -28,10 +28,10 @@
                     </span>
 
                     <p class="flex items-center text-gray-600 -px-2">
-                        <span class="mx-2">Data Barang</span>
+                        <span class="mx-2">Data Barang Masuk</span>
                     </p>
                 </div>
-                @include('dashboard.barang.add')
+                @include('dashboard.barang_masuk.add')
             </div>
         </div>
 
@@ -72,24 +72,22 @@
                     <tr>
                         <th class="px-6 py-4">No</th>
                         <th class="px-6 py-4">Nama Barang</th>
-                        <th class="px-6 py-4">Harga</th>
-                        <th class="px-6 py-4">Stok</th>
-                        <th class="px-6 py-4">Tanggal Update</th>
+                        <th class="px-6 py-4">Jumlah Masuk</th>
+                        <th class="px-6 py-4">Tanggal Masuk</th>
                         <th class="px-6 py-4">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($barang as $item)
+                    @foreach ($barangmasuk as $item)
                         <tr>
                             <td class="px-6 py-3 font-medium text-gray-900">{{ $loop->iteration }}</td>
                             <td class="px-6 py-3">{{ $item->nama }}</td>
-                            <td class="px-6 py-3">Rp {{ number_format($item->harga, 0, ',', '.') }}</td>
-                            <td class="px-6 py-3">{{ $item->stok . ' ' . $item->satuan }}</td>
-                            <td class="px-6 py-3">{{ $item->updated_at->format('d-m-Y H:i') }}</td>
+                            <td class="px-6 py-3">{{ $item->jumlah }}</td>
+                            <td class="px-6 py-3">{{ $item->created_at->format('d-m-Y H:i') }}</td>
                             <td class="px-6 py-3">
                                 <div class="flex space-x-2">
-                                    @include('dashboard.barang.edit')
-                                    @include('dashboard.barang.delete')
+                                    @include('dashboard.barang_masuk.edit')
+                                    @include('dashboard.barang_masuk.delete')
                                 </div>
                             </td>
                         </tr>

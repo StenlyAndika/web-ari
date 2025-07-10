@@ -10,6 +10,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="https://cdn.datatables.net/2.3.2/css/dataTables.tailwindcss.css" rel="stylesheet" />
+    {{-- <link href="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/css/tom-select.css" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -66,6 +67,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.tailwindcss.js"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/tom-select@2.4.3/dist/js/tom-select.complete.min.js"></script> --}}
     <script>
         setTimeout(() => {
             const alert = document.getElementById('alertDialog');
@@ -85,6 +87,14 @@
                 zeroRecords: "Data tidak ditemukan",
             }
         });
+
+        // new TomSelect('#id_barang', {
+        //     create: false,
+        //     sortField: {
+        //         field: 'text',
+        //         direction: 'asc'
+        //     }
+        // });
 
         const hargaInput = document.getElementById('harga');
 

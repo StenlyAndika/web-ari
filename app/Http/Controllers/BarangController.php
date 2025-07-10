@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\Satuan;
 use Illuminate\Http\Request;
 
 class BarangController extends Controller
@@ -11,23 +12,8 @@ class BarangController extends Controller
     {
         return view('dashboard.barang.index', [
             'title' => 'Data Barang',
-            'barang' => Barang::all(),
-            'satuan' => [
-                'batang',
-                'botol',
-                'box',
-                'butir',
-                'dus',
-                'karton',
-                'kg',
-                'lembar',
-                'liter',
-                'pak',
-                'pcs',
-                'roll',
-                'sachet',
-                'set'
-            ],
+            'barang' => Barang::orderBy('updated_at', 'desc')->get(),
+            'satuan' => Satuan::getall(),
         ]);
     }
 
