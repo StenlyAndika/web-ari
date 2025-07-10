@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BarangMasukController;
+use App\Http\Controllers\BarangKeluarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,9 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/barang/masuk', [BarangMasukController::class, 'store'])->name('admin.barang.masuk.store');
     Route::put('/admin/barang/masuk/{id}', [BarangMasukController::class, 'update'])->name('admin.barang.masuk.update');
     Route::delete('/admin/barang/masuk/{id}', [BarangMasukController::class, 'destroy'])->name('admin.barang.masuk.destroy');
+
+    Route::get('/admin/barang/keluar', [BarangKeluarController::class, 'index'])->name('admin.barang.keluar.index');
+    Route::post('/admin/barang/keluar', [BarangKeluarController::class, 'store'])->name('admin.barang.keluar.store');
+    Route::put('/admin/barang/keluar/{id}', [BarangKeluarController::class, 'update'])->name('admin.barang.keluar.update');
+    Route::delete('/admin/barang/keluar/{id}', [BarangKeluarController::class, 'destroy'])->name('admin.barang.keluar.destroy');
 });

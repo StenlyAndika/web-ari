@@ -72,7 +72,7 @@
             </li>
 
             <li>
-                <a href="#" class="flex items-center px-3 py-2 rounded-md hover:bg-emerald-50 hover:text-emerald-500 cursor-pointer text-gray-700 font-medium text-sm transition-colors">
+                <a href="{{ route('admin.barang.keluar.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/barang/keluar') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
                     <i class="material-icons mr-3 text-lg">content_paste_go</i>
                     <span>Data Barang Keluar</span>
                 </a>
