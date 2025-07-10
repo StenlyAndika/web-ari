@@ -21,10 +21,10 @@
     >
         <div
             @click.away="edit_barang = false"
-            class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg"
+            class="bg-white rounded-lg py-6 w-full max-w-md shadow-lg"
         >
-            <h2 class="text-xl font-semibold mb-4">Ubah Data Barang</h2>
-            <form method="post" action="{{ route('admin.barang.update', $item->id) }}" autocomplete="off" class="space-y-2">
+            <h2 class="text-xl font-semibold mb-4 w-full border-l-4 border-emerald-500 pl-4 pr-4 py-2 bg-gray-100">Ubah Data Barang</h2>
+            <form method="post" action="{{ route('admin.barang.update', $item->id) }}" autocomplete="off" class="space-y-2 px-6">
                 @csrf
                 @method('put')
 
@@ -65,8 +65,7 @@
                         for="satuan"
                         class="absolute left-4 top-2 text-sm text-gray-500 transition-all duration-200
                             peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600
-                            peer-valid:top-2 peer-valid:text-sm peer-valid:text-blue-600
-                            peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400"
+                            peer-valid:top-2 peer-valid:text-sm peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400"
                     >
                         Satuan
                     </label>

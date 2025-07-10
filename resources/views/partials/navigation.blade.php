@@ -33,7 +33,7 @@
     <nav class="mt-2">
         <ul class="space-y-1 px-3">
             <li>
-                <a href="{{ route('admin.dashboard') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('dashboard') ? 'bg-primary text-white border-l-4 border-accent' : 'bg-white text-gray-700 hover:text-primary' }}">
+                <a href="{{ route('admin.dashboard') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('dashboard') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
                     <i class="material-icons mr-3 text-lg">dashboard</i>
                     <span>Dashboard</span>
                 </a>
@@ -42,7 +42,7 @@
             <li x-data="{ masterDataOpen: {{ Request::is('admin/master/barang*') ? 'true' : 'false' }} }">
                 <div
                     @click="masterDataOpen = !masterDataOpen"
-                    class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors bg-white text-gray-700 hover:text-primary"
+                    class="flex items-center px-3 py-2 rounded-md hover:bg-emerald-50 hover:text-emerald-500 cursor-pointer text-gray-700 font-medium text-sm transition-colors bg-white text-gray-700"
                 >
                     <i class="material-icons mr-3 text-lg">folder</i>
                     <span>Data Master</span>
@@ -57,7 +57,7 @@
                     x-collapse
                     class="ml-6 mt-1 space-y-1"
                 >
-                    <a href="{{ route('admin.barang.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/barang*') ? 'bg-primary text-white border-l-4 border-accent' : 'bg-white text-gray-700 hover:text-primary' }}">
+                    <a href="{{ route('admin.barang.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/barang*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
                         <i class="material-icons mr-3 text-base">description</i>
                         Data Barang
                     </a>
@@ -65,14 +65,14 @@
             </li>
 
             <li>
-                <a href="#" class="flex items-center px-3 py-2 rounded-md hover:text-primary cursor-pointer text-gray-700 font-medium text-sm transition-colors">
+                <a href="#" class="flex items-center px-3 py-2 rounded-md hover:bg-emerald-50 hover:text-emerald-500 cursor-pointer text-gray-700 font-medium text-sm transition-colors">
                     <i class="material-icons mr-3 text-lg">edit_document</i>
                     <span>Data Barang Masuk</span>
                 </a>
             </li>
 
             <li>
-                <a href="#" class="flex items-center px-3 py-2 rounded-md hover:text-primary cursor-pointer text-gray-700 font-medium text-sm transition-colors">
+                <a href="#" class="flex items-center px-3 py-2 rounded-md hover:bg-emerald-50 hover:text-emerald-500 cursor-pointer text-gray-700 font-medium text-sm transition-colors">
                     <i class="material-icons mr-3 text-lg">content_paste_go</i>
                     <span>Data Barang Keluar</span>
                 </a>

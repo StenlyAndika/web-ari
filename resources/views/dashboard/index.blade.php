@@ -18,7 +18,7 @@
             </div>
         @endif
         <!-- Total Products Card -->
-        <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-accent">
+        <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-emerald-500">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-700 text-sm font-medium">Total Barang</p>
@@ -31,7 +31,7 @@
         </div>
 
         <!-- Incoming Items Card -->
-        <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-accent">
+        <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-emerald-500">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-700 text-sm font-medium">Barang Masuk</p>
@@ -44,7 +44,7 @@
         </div>
 
         <!-- Outgoing Items Card -->
-        <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-accent">
+        <div class="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow border-l-4 border-emerald-500">
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-700 text-sm font-medium">Barang Keluar</p>

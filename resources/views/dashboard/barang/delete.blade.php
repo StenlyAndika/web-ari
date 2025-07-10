@@ -20,11 +20,11 @@
         class="fixed inset-0 flex items-center justify-center z-50"
     >
         <div
-            @click.away="hapus_barang = false"
-            class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg"
+            @click.away="tambah_barang = false"
+            class="bg-white rounded-lg py-6 w-full max-w-md shadow-lg"
         >
-            <h2 class="text-xl font-semibold mb-4">Hapus Data Barang</h2>
-            <form method="post" action="{{ route('admin.barang.destroy', $item->id) }}" autocomplete="off" class="space-y-2">
+            <h2 class="text-xl font-semibold mb-4 w-full border-l-4 border-emerald-500 pl-4 pr-4 py-2 bg-gray-100">Hapus Data Barang</h2>
+            <form method="post" action="{{ route('admin.barang.destroy', $item->id) }}" autocomplete="off" class="space-y-2 px-6">
                 @csrf
                 @method('delete')
 

@@ -1,7 +1,7 @@
 <!-- Modal Toggle -->
 <div x-data="{ tambah_barang: false }">
     <!-- Open Button -->
-    <button @click="tambah_barang = true" class="px-4 py-2 text-white bg-primary text-sm font-bold rounded hover:bg-blue-700">
+    <button @click="tambah_barang = true" class="px-4 py-2 text-white bg-emerald-500 text-sm font-bold rounded hover:bg-blue-700">
         Data Baru
     </button>
 
@@ -21,10 +21,10 @@
     >
         <div
             @click.away="tambah_barang = false"
-            class="bg-white rounded-lg p-6 w-full max-w-md shadow-lg"
+            class="bg-white rounded-lg py-6 w-full max-w-md shadow-lg"
         >
-            <h2 class="text-xl font-semibold mb-4">Data Baru</h2>
-            <form method="post" action="{{ route('admin.barang.store') }}" autocomplete="off" class="space-y-2">
+            <h2 class="text-xl font-semibold mb-4 w-full border-l-4 border-emerald-500 pl-4 pr-4 py-2 bg-gray-100">Data Baru</h2>
+            <form method="post" action="{{ route('admin.barang.store') }}" autocomplete="off" class="space-y-2 px-6">
                 @csrf
 
                 <!-- Nama Barang -->
