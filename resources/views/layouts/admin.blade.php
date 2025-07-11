@@ -43,6 +43,7 @@
         x-data="{
             sidebarOpen: true,
             masterDataOpen: false,
+            laporanDataOpen: false,
             toggleSidebar() {
                 this.sidebarOpen = !this.sidebarOpen;
             }

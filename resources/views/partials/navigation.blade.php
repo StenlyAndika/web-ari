@@ -78,6 +78,35 @@
                 </a>
             </li>
 
+            <li x-data="{ laporanDataOpen: {{ Request::is('admin/master/barang*') ? 'true' : 'false' }} }">
+                <div
+                    @click="laporanDataOpen=!laporanDataOpen"
+                    class="flex items-center px-3 py-2 rounded-md hover:bg-emerald-50 hover:text-emerald-500 cursor-pointer text-gray-700 font-medium text-sm transition-colors bg-white text-gray-700"
+                >
+                    <i class="material-icons mr-3 text-lg">folder</i>
+                    <span>Data Laporan</span>
+                    <i
+                        class="material-icons ml-auto text-lg transition-transform duration-200"
+                        :class="{'rotate-180': laporanDataOpen}"
+                        x-text="laporanDataOpen ? 'expand_less' : 'expand_more'"
+                    ></i>
+                </div>
+                <div
+                    x-show="laporanDataOpen"
+                    x-collapse
+                    class="ml-6 mt-1 space-y-1"
+                >
+                    <a href="" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/barang*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                        <i class="material-icons mr-3 text-base">description</i>
+                        Laporan Barang Masuk
+                    </a>
+                    <a href="" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/barang*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                        <i class="material-icons mr-3 text-base">description</i>
+                        Laporan Barang Keluar
+                    </a>
+                </div>
+            </li>
+
             <li class="pt-4 border-t border-gray-200 mt-4">
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
