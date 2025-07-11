@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
@@ -40,4 +41,9 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/barang/keluar', [BarangKeluarController::class, 'store'])->name('admin.barang.keluar.store');
     Route::put('/admin/barang/keluar/{id}', [BarangKeluarController::class, 'update'])->name('admin.barang.keluar.update');
     Route::delete('/admin/barang/keluar/{id}', [BarangKeluarController::class, 'destroy'])->name('admin.barang.keluar.destroy');
+
+    Route::get('/admin/laporan/masuk', [LaporanController::class, 'masuk'])->name('admin.laporan.masuk');
+    Route::get('/admin/laporan/masuk/print/{bln}', [LaporanController::class, 'masuk_print'])->name('admin.laporan.masuk.print');
+    Route::get('/admin/laporan/keluar', [LaporanController::class, 'keluar'])->name('admin.laporan.keluar');
+    Route::get('/admin/laporan/keluar/print/{bln}', [LaporanController::class, 'keluar_print'])->name('admin.laporan.keluar.print');
 });

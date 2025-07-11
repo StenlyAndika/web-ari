@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Barang;
+use App\Models\BarangMasuk;
+use App\Models\BarangKeluar;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -15,6 +17,8 @@ class DashboardController extends Controller
         return view('dashboard.index', [
             'title' => 'Dashboard Admin',
             'total_barang' => Barang::count(),
+            'total_barang_masuk' => BarangMasuk::count(),
+            'total_barang_keluar' => BarangKeluar::count(),
         ]);
     }
 }

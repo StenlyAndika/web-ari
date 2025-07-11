@@ -78,7 +78,7 @@
                 </a>
             </li>
 
-            <li x-data="{ laporanDataOpen: {{ Request::is('admin/master/barang*') ? 'true' : 'false' }} }">
+            <li x-data="{ laporanDataOpen: {{ Request::is('admin/laporan*') ? 'true' : 'false' }} }">
                 <div
                     @click="laporanDataOpen=!laporanDataOpen"
                     class="flex items-center px-3 py-2 rounded-md hover:bg-emerald-50 hover:text-emerald-500 cursor-pointer text-gray-700 font-medium text-sm transition-colors bg-white text-gray-700"
@@ -96,11 +96,11 @@
                     x-collapse
                     class="ml-6 mt-1 space-y-1"
                 >
-                    <a href="" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/barang*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                    <a href="{{ route('admin.laporan.masuk') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/laporan/masuk*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
                         <i class="material-icons mr-3 text-base">description</i>
                         Laporan Barang Masuk
                     </a>
-                    <a href="" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/barang*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                    <a href="{{ route('admin.laporan.keluar') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/laporan/keluar*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
                         <i class="material-icons mr-3 text-base">description</i>
                         Laporan Barang Keluar
                     </a>

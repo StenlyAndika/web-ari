@@ -35,7 +35,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-700 text-sm font-medium">Barang Masuk</p>
-                    <p class="text-2xl font-bold text-gray-700 mt-1">326</p>
+                    <p class="text-2xl font-bold text-gray-700 mt-1">{{ $total_barang_masuk }}</p>
                 </div>
                 <div class="bg-green-100 rounded-full p-3">
                     <i class="material-icons text-green-600 text-2xl">input</i>
@@ -48,7 +48,7 @@
             <div class="flex items-center justify-between">
                 <div>
                     <p class="text-gray-700 text-sm font-medium">Barang Keluar</p>
-                    <p class="text-2xl font-bold text-gray-700 mt-1">189</p>
+                    <p class="text-2xl font-bold text-gray-700 mt-1">{{ $total_barang_keluar }}</p>
                 </div>
                 <div class="bg-orange-100 rounded-full p-3">
                     <i class="material-icons text-orange-600 text-2xl">output</i>

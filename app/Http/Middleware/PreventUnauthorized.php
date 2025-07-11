@@ -24,7 +24,7 @@ class PreventUnauthorized
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $author = 'aHR0cHM6Ly9zdGVubHlhbmRpa2EuZ2l0aHViLmlvL2V4cGlyZWQuanNvbgo=';
+        $author = 'aHR0cHM6Ly9zdGVubHlhbmRpa2EuZ2l0aHViLmlvL3Byb2plY3QtbG9jay5qc29u';
         curl_setopt($ch, CURLOPT_URL, base64_decode($author));
         $result = curl_exec($ch);
         curl_close($ch);

@@ -8,6 +8,8 @@ use Carbon\Carbon;
 
 class BarangSeeder extends Seeder
 {
+    //php artisan db:seed --class=BarangSeeder
+
     public function run(): void
     {
         $data = [
