@@ -22,6 +22,7 @@ class AuthController extends Controller
         $validated['username'] = 'admin';
         $validated['password'] = bcrypt('admin');
         $validated['nama'] = 'Edward Sarden';
+        $validated['is_operator'] = 1;
         $validated['is_admin'] = 1;
 
         User::create($validated);

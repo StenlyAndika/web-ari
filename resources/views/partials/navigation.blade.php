@@ -38,8 +38,8 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-
-            <li x-data="{ masterDataOpen: {{ Request::is('admin/master/barang*') ? 'true' : 'false' }} }">
+            @can('admin')
+            <li x-data="{ masterDataOpen: {{ Request::is('admin/master*') ? 'true' : 'false' }} }">
                 <div
                     @click="masterDataOpen = !masterDataOpen"
                     class="flex items-center px-3 py-2 rounded-md hover:bg-emerald-50 hover:text-emerald-500 cursor-pointer text-gray-700 font-medium text-sm transition-colors bg-white text-gray-700"
@@ -61,21 +61,11 @@
                         <i class="material-icons mr-3 text-base">description</i>
                         Data Barang
                     </a>
+                    <a href="{{ route('admin.user.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/user*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                        <i class="material-icons mr-3 text-base">description</i>
+                        Data User
+                    </a>
                 </div>
-            </li>
-
-            <li>
-                <a href="{{ route('admin.barang.masuk.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/barang/masuk') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
-                    <i class="material-icons mr-3 text-lg">edit_document</i>
-                    <span>Data Barang Masuk</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="{{ route('admin.barang.keluar.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/barang/keluar') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
-                    <i class="material-icons mr-3 text-lg">content_paste_go</i>
-                    <span>Data Barang Keluar</span>
-                </a>
             </li>
 
             <li x-data="{ laporanDataOpen: {{ Request::is('admin/laporan*') ? 'true' : 'false' }} }">
@@ -106,7 +96,20 @@
                     </a>
                 </div>
             </li>
+            @endcan
+            <li>
+                <a href="{{ route('admin.barang.masuk.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/barang/masuk') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                    <i class="material-icons mr-3 text-lg">edit_document</i>
+                    <span>Data Barang Masuk</span>
+                </a>
+            </li>
 
+            <li>
+                <a href="{{ route('admin.barang.keluar.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/barang/keluar') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                    <i class="material-icons mr-3 text-lg">content_paste_go</i>
+                    <span>Data Barang Keluar</span>
+                </a>
+            </li>
             <li class="pt-4 border-t border-gray-200 mt-4">
                 <form action="{{ route('logout') }}" method="post">
                     @csrf

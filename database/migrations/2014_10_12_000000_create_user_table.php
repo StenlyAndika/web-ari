@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('nama');
+            $table->integer('is_operator');
             $table->integer('is_admin');
             $table->timestamps();
         });

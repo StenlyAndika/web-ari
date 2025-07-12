@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class IsAdmin
+class IsOperator
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || !auth()->user()->is_admin) {
-            abort(404, 'Not Found.');
+        if(!auth()->check() || !auth()->user()->is_operator) {
+            return redirect()->route('welcome');
         }
         return $next($request);
     }

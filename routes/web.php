@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\DashboardController;
@@ -23,9 +24,14 @@ Route::get('/', [AuthController::class, 'index'])->name('welcome')->middleware('
 Route::post('/login', [AuthController::class, 'authenticate'])->name('auth')->middleware('guest');
 Route::post('/generate', [AuthController::class, 'generate'])->name('generateadmin')->middleware(['guest', 'checkadmin']);
 
-Route::middleware(['admin'])->group(function () {
+Route::middleware(['operator'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/admin/master/user', [UserController::class, 'index'])->name('admin.user.index');
+    Route::post('/admin/master/user', [UserController::class, 'store'])->name('admin.user.store');
+    Route::put('/admin/master/user/{id}', [UserController::class, 'update'])->name('admin.user.update');
+    Route::delete('/admin/master/user/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
 
     Route::get('/admin/master/barang', [BarangController::class, 'index'])->name('admin.barang.index');
     Route::post('/admin/master/barang', [BarangController::class, 'store'])->name('admin.barang.store');

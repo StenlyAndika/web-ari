@@ -28,6 +28,10 @@ class AppServiceProvider extends ServiceProvider
             return $user === null;
         });
 
+        Gate::define('operator', function(User $user) {
+            return $user->is_operator;
+        });
+
         Gate::define('admin', function(User $user) {
             return $user->is_admin;
         });
