@@ -17,10 +17,12 @@ class LaporanController extends Controller
             'title' => 'Laporan Barang Masuk',
             'bln' => $bln,
             'barangmasuk' => BarangMasuk::join('barang', 'barang_masuk.id_barang', '=', 'barang.id')
+                    ->join('supplier', 'barang_masuk.id_supplier', '=', 'supplier.id')
                     ->select(
                         'barang_masuk.*',
                         'barang.nama',
-                        'barang.satuan'
+                        'barang.satuan',
+                        'supplier.nama as nama_supplier'
                     )
                     ->whereMonth('barang_masuk.updated_at', '=', date('m', strtotime($bln)))
                     ->whereYear('barang_masuk.updated_at', '=', date('Y', strtotime($bln)))
@@ -32,10 +34,12 @@ class LaporanController extends Controller
     public function masuk_print($bln) {
 
         $masuk = BarangMasuk::join('barang', 'barang_masuk.id_barang', '=', 'barang.id')
+                    ->join('supplier', 'barang_masuk.id_supplier', '=', 'supplier.id')
                     ->select(
                         'barang_masuk.*',
                         'barang.nama',
-                        'barang.satuan'
+                        'barang.satuan',
+                        'supplier.nama as nama_supplier'
                     )
                     ->whereMonth('barang_masuk.updated_at', '=', date('m', strtotime($bln)))
                     ->whereYear('barang_masuk.updated_at', '=', date('Y', strtotime($bln)))
@@ -56,11 +60,14 @@ class LaporanController extends Controller
             'title' => 'Laporan Barang Keluar',
             'bln' => $bln,
             'barangkeluar' => BarangKeluar::join('barang', 'barang_keluar.id_barang', '=', 'barang.id')
+                    ->join('barang_masuk', 'barang_masuk.id_barang', '=', 'barang_keluar.id_barang')
+                    ->join('supplier', 'barang_masuk.id_supplier', '=', 'supplier.id')
                     ->select(
                         'barang_keluar.*',
                         'barang.nama',
                         'barang.satuan',
-                        'barang.stok'
+                        'barang.stok',
+                        'supplier.nama as nama_supplier'
                     )
                     ->whereMonth('barang_keluar.updated_at', '=', date('m', strtotime($bln)))
                     ->whereYear('barang_keluar.updated_at', '=', date('Y', strtotime($bln)))
@@ -72,11 +79,14 @@ class LaporanController extends Controller
     public function keluar_print($bln) {
 
         $keluar = BarangKeluar::join('barang', 'barang_keluar.id_barang', '=', 'barang.id')
+                    ->join('barang_masuk', 'barang_masuk.id_barang', '=', 'barang_keluar.id_barang')
+                    ->join('supplier', 'barang_masuk.id_supplier', '=', 'supplier.id')
                     ->select(
                         'barang_keluar.*',
                         'barang.nama',
                         'barang.satuan',
-                        'barang.stok'
+                        'barang.stok',
+                        'supplier.nama as nama_supplier'
                     )
                     ->whereMonth('barang_keluar.updated_at', '=', date('m', strtotime($bln)))
                     ->whereYear('barang_keluar.updated_at', '=', date('Y', strtotime($bln)))

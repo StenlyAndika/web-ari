@@ -20,7 +20,7 @@
         class="fixed inset-0 flex items-center justify-center z-50"
     >
         <div
-            @click.away="tambah_barang = false"
+            @click.away="hapus_barang_masuk = false"
             class="bg-white rounded-lg py-6 w-full max-w-md shadow-lg"
         >
             <h2 class="text-xl font-semibold mb-4 w-full border-l-4 border-emerald-500 pl-4 pr-4 py-2 bg-gray-100">Hapus Data Barang Masuk</h2>
@@ -30,7 +30,6 @@
 
                 <!-- Id Barang -->
                 <div class="relative">
-                    <input type="hidden" name="id_barang" value="{{ $item->id_barang }}">
                     @php
                         $barang = \App\Models\Barang::find($item->id_barang);
                     @endphp
@@ -52,9 +51,31 @@
                     </label>
                 </div>
 
+                <!-- Id Supplier -->
+                <div class="relative">
+                    @php
+                        $supplier = \App\Models\Supplier::find($item->id_supplier);
+                    @endphp
+                    <input
+                        id="supplier"
+                        name="supplier"
+                        type="text"
+                        value="{{ $supplier->nama }}"
+                        readonly
+                        class="peer w-full border border-gray-300 bg-white px-4 pt-6 pb-2 text-gray-900 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                    />
+                    <label
+                        for="supplier"
+                        class="absolute left-4 top-2 text-sm text-gray-500 transition-all duration-200
+                            peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400
+                            peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600"
+                    >
+                        Nama Supplier
+                    </label>
+                </div>
+
                 <!-- Jumlah Barang Masuk -->
                 <div class="relative">
-                    <input type="hidden" name="jumlah_old" value="{{ $item->jumlah }}">
                     <input
                         id="jumlah"
                         name="jumlah"

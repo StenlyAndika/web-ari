@@ -18,7 +18,7 @@
                     </span>
 
                     <p class="flex items-center text-gray-600 -px-2">
-                        <span class="mx-2">Transaksi</span>
+                        <span class="mx-2">Master</span>
                     </p>
 
                     <span class="mx-5 text-gray-500 dark:text-gray-300 rtl:-scale-x-100">
@@ -28,10 +28,10 @@
                     </span>
 
                     <p class="flex items-center text-gray-600 -px-2">
-                        <span class="mx-2">Data Barang Keluar</span>
+                        <span class="mx-2">Data Supplier</span>
                     </p>
                 </div>
-                @include('dashboard.barang_keluar.add')
+                @include('dashboard.supplier.add')
             </div>
         </div>
 
@@ -71,25 +71,19 @@
                 <thead class="bg-gray-100 text-xs uppercase text-gray-600">
                     <tr>
                         <th class="px-6 py-4">No</th>
-                        <th class="px-6 py-4">Nama Barang</th>
                         <th class="px-6 py-4">Nama Supplier</th>
-                        <th class="px-6 py-4">Jumlah Keluar</th>
-                        <th class="px-6 py-4">Tanggal Keluar</th>
                         <th class="px-6 py-4">Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($barangkeluar as $item)
+                    @foreach ($supplier as $item)
                         <tr>
                             <td class="px-6 py-3 font-medium text-gray-900">{{ $loop->iteration }}</td>
                             <td class="px-6 py-3">{{ $item->nama }}</td>
-                            <td class="px-6 py-3">{{ $item->nama_supplier }}</td>
-                            <td class="px-6 py-3">{{ $item->jumlah . ' ' . $item->satuan }}</td>
-                            <td class="px-6 py-3">{{ $item->created_at->format('d-m-Y H:i') }}</td>
                             <td class="px-6 py-3">
                                 <div class="flex space-x-2">
-                                    @include('dashboard.barang_keluar.edit')
-                                    @include('dashboard.barang_keluar.delete')
+                                    @include('dashboard.supplier.edit')
+                                    @include('dashboard.supplier.delete')
                                 </div>
                             </td>
                         </tr>

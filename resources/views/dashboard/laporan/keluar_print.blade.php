@@ -68,6 +68,7 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Barang</th>
+                    <th>Nama Supplier</th>
                     <th>Jumlah Keluar</th>
                     <th>Stok</th>
                     <th>Tanggal Keluar</th>
@@ -81,6 +82,9 @@
                         </th>
                         <td>
                             {{ $item->nama }}
+                        </td>
+                        <td>
+                            {{ $item->nama_supplier }}
                         </td>
                         <td>
                             {{ $item->stok }}

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('barang_keluar', function (Blueprint $table) {
             $table->id();
             $table->integer('id_barang')->nullable();
+            $table->integer('id_supplier')->nullable();
             $table->integer('jumlah')->nullable();
             $table->timestamps();
         });

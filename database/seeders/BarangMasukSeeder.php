@@ -18,6 +18,7 @@ class BarangMasukSeeder extends Seeder
         for ($i = 1; $i <= 5; $i++) {
             $data[] = [
                 'id_barang' => rand(1, 20),
+                'id_supplier' => rand(1, 5),
                 'jumlah' => rand(5, 30),
                 'created_at' => Carbon::create(2025, 6, $i, rand(0, 23), rand(0, 59), rand(0, 59)),
                 'updated_at' => Carbon::create(2025, 6, $i, rand(0, 23), rand(0, 59), rand(0, 59)),
@@ -28,6 +29,7 @@ class BarangMasukSeeder extends Seeder
         for ($i = 1; $i <= 15; $i++) {
             $data[] = [
                 'id_barang' => rand(1, 20),
+                'id_supplier' => rand(1, 5),
                 'jumlah' => rand(5, 30),
                 'created_at' => Carbon::create(2025, 7, $i, rand(0, 23), rand(0, 59), rand(0, 59)),
                 'updated_at' => Carbon::create(2025, 7, $i, rand(0, 23), rand(0, 59), rand(0, 59)),

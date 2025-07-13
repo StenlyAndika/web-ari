@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BarangMasukController;
 use App\Http\Controllers\BarangKeluarController;
@@ -32,6 +33,11 @@ Route::middleware(['operator'])->group(function () {
     Route::post('/admin/master/user', [UserController::class, 'store'])->name('admin.user.store');
     Route::put('/admin/master/user/{id}', [UserController::class, 'update'])->name('admin.user.update');
     Route::delete('/admin/master/user/{id}', [UserController::class, 'destroy'])->name('admin.user.destroy');
+
+    Route::get('/admin/master/supplier', [SupplierController::class, 'index'])->name('admin.supplier.index');
+    Route::post('/admin/master/supplier', [SupplierController::class, 'store'])->name('admin.supplier.store');
+    Route::put('/admin/master/supplier/{id}', [SupplierController::class, 'update'])->name('admin.supplier.update');
+    Route::delete('/admin/master/supplier/{id}', [SupplierController::class, 'destroy'])->name('admin.supplier.destroy');
 
     Route::get('/admin/master/barang', [BarangController::class, 'index'])->name('admin.barang.index');
     Route::post('/admin/master/barang', [BarangController::class, 'store'])->name('admin.barang.store');

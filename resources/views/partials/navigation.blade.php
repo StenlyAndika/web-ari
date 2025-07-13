@@ -61,6 +61,10 @@
                         <i class="material-icons mr-3 text-base">description</i>
                         Data Barang
                     </a>
+                    <a href="{{ route('admin.supplier.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/supplier*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                        <i class="material-icons mr-3 text-base">description</i>
+                        Data Supplier
+                    </a>
                     <a href="{{ route('admin.user.index') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/master/user*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
                         <i class="material-icons mr-3 text-base">description</i>
                         Data User

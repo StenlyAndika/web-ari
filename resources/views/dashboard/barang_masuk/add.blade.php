@@ -35,7 +35,7 @@
                         required
                         class="peer w-full border border-gray-300 bg-white px-4 pt-6 pb-2 text-gray-900 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                     >
-                        <option disabled selected value="">-- Pilih --</option>
+                        <option disabled selected value="">-- Pilih Barang --</option>
                         @foreach ($barang as $item)
                             <option value="{{ $item->id }}">{{ $item->nama }}</option>
                         @endforeach
@@ -48,6 +48,30 @@
                             peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400"
                     >
                         Nama Barang
+                    </label>
+                </div>
+
+                <!-- Id Supplier -->
+                <div class="relative">
+                    <select
+                        id="id_supplier"
+                        name="id_supplier"
+                        required
+                        class="peer w-full border border-gray-300 bg-white px-4 pt-6 pb-2 text-gray-900 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                    >
+                        <option disabled selected value="">-- Pilih Supplier --</option>
+                        @foreach ($supplier as $item)
+                            <option value="{{ $item->id }}">{{ $item->nama }}</option>
+                        @endforeach
+                    </select>
+                    <label
+                        for="id_supplier"
+                        class="absolute left-4 top-2 text-sm text-gray-500 transition-all duration-200
+                            peer-focus:top-2 peer-focus:text-sm peer-focus:text-blue-600
+                            peer-valid:top-2 peer-valid:text-sm peer-valid:text-blue-600
+                            peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400"
+                    >
+                        Nama Supplier
                     </label>
                 </div>
 

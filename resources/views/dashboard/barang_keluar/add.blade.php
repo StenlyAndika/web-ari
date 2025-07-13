@@ -35,7 +35,7 @@
                         required
                         class="peer w-full border border-gray-300 bg-white px-4 pt-6 pb-2 text-gray-900 rounded-md appearance-none focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
                     >
-                        <option disabled selected value="">-- Pilih --</option>
+                        <option disabled selected value="">-- Pilih Barang --</option>
                         @foreach ($barang as $item)
                             <option value="{{ $item->id }}">{{ $item->nama }}</option>
                         @endforeach

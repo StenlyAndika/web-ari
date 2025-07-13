@@ -68,6 +68,7 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Barang</th>
+                    <th>Nama Supplier</th>
                     <th>Jumlah Masuk</th>
                     <th>Tanggal Masuk</th>
                 </tr>
@@ -80,6 +81,9 @@
                         </th>
                         <td>
                             {{ $item->nama }}
+                        </td>
+                        <td>
+                            {{ $item->nama_supplier }}
                         </td>
                         <td>
                             {{ $item->jumlah . ' ' . $item->satuan }}

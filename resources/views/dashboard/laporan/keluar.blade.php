@@ -69,6 +69,7 @@
                     <tr>
                         <th class="px-6 py-4">No</th>
                         <th class="px-6 py-4">Nama Barang</th>
+                        <th class="px-6 py-4">Nama Supplier</th>
                         <th class="px-6 py-4">Jumlah Keluar</th>
                         <th class="px-6 py-4">Tanggal Keluar</th>
                     </tr>
@@ -78,6 +79,7 @@
                         <tr>
                             <td class="px-6 py-3 font-medium text-gray-900">{{ $loop->iteration }}</td>
                             <td class="px-6 py-3">{{ $item->nama }}</td>
+                            <td class="px-6 py-3">{{ $item->nama_supplier }}</td>
                             <td class="px-6 py-3">{{ $item->jumlah . ' ' . $item->satuan }}</td>
                             <td class="px-6 py-3">{{ $item->created_at->format('d-m-Y H:i') }}</td>
                         </tr>

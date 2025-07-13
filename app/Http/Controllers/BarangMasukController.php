@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Barang;
 use App\Models\Satuan;
+use App\Models\Supplier;
 use App\Models\BarangMasuk;
 use Illuminate\Http\Request;
 
@@ -14,12 +15,15 @@ class BarangMasukController extends Controller
         return view('dashboard.barang_masuk.index', [
             'title' => 'Data Barang Masuk',
             'barang' => Barang::orderBy('nama', 'asc')->get(),
+            'supplier' => Supplier::orderBy('nama', 'asc')->get(),
             'satuan' => Satuan::getall(),
             'barangmasuk' => BarangMasuk::join('barang', 'barang_masuk.id_barang', '=', 'barang.id')
+                    ->join('supplier', 'barang_masuk.id_supplier', '=', 'supplier.id')
                     ->select(
                         'barang_masuk.*',
                         'barang.nama',
-                        'barang.satuan'
+                        'barang.satuan',
+                        'supplier.nama as nama_supplier'
                     )
                     ->get(),
         ]);
@@ -29,6 +33,7 @@ class BarangMasukController extends Controller
     {
         $rules = [
             'id_barang' => 'required',
+            'id_supplier' => 'required',
             'jumlah' => 'required',
         ];
 
@@ -50,6 +55,7 @@ class BarangMasukController extends Controller
     {
         $rules = [
             'id_barang' => 'required',
+            'id_supplier' => 'required',
             'jumlah' => 'required',
         ];
 
