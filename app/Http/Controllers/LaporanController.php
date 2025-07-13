@@ -46,7 +46,7 @@ class LaporanController extends Controller
         $pdf->setPaper('A4', 'portrait');
         $a = Carbon::parse($bln)->format('m-Y');
 
-        return $pdf->download('Laporan-Barang Masuk-'. $a .'.pdf');
+        return $pdf->download('Laporan-Barang-Masuk-'. $a .'.pdf');
     }
 
     public function keluar(Request $request)
@@ -59,7 +59,8 @@ class LaporanController extends Controller
                     ->select(
                         'barang_keluar.*',
                         'barang.nama',
-                        'barang.satuan'
+                        'barang.satuan',
+                        'barang.stok'
                     )
                     ->whereMonth('barang_keluar.updated_at', '=', date('m', strtotime($bln)))
                     ->whereYear('barang_keluar.updated_at', '=', date('Y', strtotime($bln)))
@@ -74,7 +75,8 @@ class LaporanController extends Controller
                     ->select(
                         'barang_keluar.*',
                         'barang.nama',
-                        'barang.satuan'
+                        'barang.satuan',
+                        'barang.stok'
                     )
                     ->whereMonth('barang_keluar.updated_at', '=', date('m', strtotime($bln)))
                     ->whereYear('barang_keluar.updated_at', '=', date('Y', strtotime($bln)))
@@ -85,6 +87,6 @@ class LaporanController extends Controller
         $pdf->setPaper('A4', 'portrait');
         $a = Carbon::parse($bln)->format('m-Y');
 
-        return $pdf->download('Laporan-Barang Keluar-'. $a .'.pdf');
+        return $pdf->download('Laporan-Barang-Keluar-'. $a .'.pdf');
     }
 }

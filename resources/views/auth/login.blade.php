@@ -42,7 +42,7 @@
                         <img class="h-10 w-10 object-contain" src="img/tablogo.png" alt="Minimarket Iwel Logo" />
                     </div>
                     <h1 class="text-3xl font-bold text-white tracking-tight">
-                        Minimarket Iwel
+                        Toko Iwel
                     </h1>
                     <p class="mt-2 text-sm text-white">
                         Welcome back! Please sign in to continue
@@ -119,7 +119,7 @@
                 <!-- Footer -->
                 <div class="text-center">
                     <p class="text-xs text-white">
-                        Secure login powered by Minimarket Iwel
+                        Secure login powered by Toko Iwel
                     </p>
                 </div>
             </div>

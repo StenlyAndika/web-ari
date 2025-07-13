@@ -61,8 +61,8 @@
     </form>
 
         <h1 class="text-xl font-semibold text-gray-700 px-6 text-center">Laporan Barang Keluar</h1>
-        <h1 class="text-xl font-semibold text-gray-700 px-6 text-center">Minimarket Iwel</h1>
-        <h3 class="text-md font-semibold text-gray-700 px-6 ">Bulan : Juli 2025</h3>
+        <h1 class="text-xl font-semibold text-gray-700 px-6 text-center">Toko Iwel</h1>
+        <h3 class="text-md font-semibold text-gray-700 px-6 ">Bulan : {{ Carbon\Carbon::parse($bln)->translatedFormat('F Y') }} 2025</h3>
         <div class="overflow-x-auto bg-white rounded-xl shadow-md px-6 pb-6">
             <table class="min-w-full text-sm text-left text-gray-700">
                 <thead class="bg-gray-100 text-xs uppercase text-gray-600">

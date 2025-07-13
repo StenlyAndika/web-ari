@@ -14,7 +14,7 @@
             <div class="w-8 h-8 rounded bg-white flex items-center justify-center mr-3">
                 <i class="material-icons text-primary">shopping_cart</i>
             </div>
-            <h2 class="text-white text-lg font-semibold">Minimarket Iwel</h2>
+            <h2 class="text-white text-lg font-semibold">Toko Iwel</h2>
         </div>
     </div>
 

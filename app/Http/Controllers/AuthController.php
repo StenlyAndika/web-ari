@@ -13,7 +13,7 @@ class AuthController extends Controller
         $timestamp = strtotime(now());
         $month = date('n', $timestamp);
         return view('auth.login', [
-            'title' => 'MINIMARKET IWEL | Login'
+            'title' => 'TOKO IWEL | Login'
         ]);
     }
 

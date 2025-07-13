@@ -59,7 +59,7 @@
             </main>
             <!-- Sticky Footer -->
             <footer class="bg-gray-50 text-sm text-gray-600 px-6 py-3 text-center mt-auto">
-                &copy; 2025 Minimarket Iwel. All rights reserved.
+                &copy; 2025 Toko Iwel. All rights reserved.
             </footer>
         </div>
     </div>

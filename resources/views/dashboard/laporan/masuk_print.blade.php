@@ -52,18 +52,17 @@
     <div class="kopsurat">
         <table class="kop">
             <tr>
-                {{-- <td><img src="img/tablogo.png" width="140px"></td> --}}
+                <td><img src="img/tablogo.png" width="100px"></td>
                 <td class="tengah">
-                    <h3>MINIMARKET IWEL</h3>
+                    <h3>TOKO IWEL</h3>
                     <h3>LAPORAN BARANG MASUK</h3>
                 </td>
-                {{-- <td><img src="img/tablogo2.png" width="140px"></td> --}}
             </tr>
         </table>
     </div>
     <div>
-        <h5>BULAN : {{ Carbon\Carbon::parse($bln)->translatedFormat('F Y') }}</h5>
-        <h5>TANGGAL CETAK LAPORAN : {{ Carbon\Carbon::now()->translatedFormat('d F Y') }}</h5>
+        <h5>Bulan : {{ Carbon\Carbon::parse($bln)->translatedFormat('F Y') }}</h5>
+        <h5>Tanggal Cetak Laporan : {{ Carbon\Carbon::now()->translatedFormat('d F Y') }}</h5>
         <table class="table-body">
             <thead>
                 <tr>
@@ -97,33 +96,33 @@
             }
 
             .left {
-                width: 50%;
+                width: 30%;
             }
         </style>
         <br>
         <br>
-        {{-- <table class="right-align">
+        <table class="right-align">
             <tr>
                 <td>&nbsp;</td>
                 <td class="left">&nbsp;</td>
-                <td style="text-align: center">Sungai Penuh, {{ Carbon\Carbon::now()->format('d-m-Y') }}</td>
+                <td style="text-align: center">Tanjung Pauh Hilir, {{ Carbon\Carbon::now()->format('d-m-Y') }}</td>
             </tr>
             <tr>
-                <td style="text-align: center">Mengetahui<br>Kepala Kejaksaan Negeri Sungai Penuh</td>
                 <td>&nbsp;</td>
-                <td style="text-align: center">Kepala Seksi Tindak Pidana Umum<br>Kejaksaan Negeri Sungai Penuh</td>
-            </tr>
-            <tr>
-                <td>&nbsp;<br>&nbsp;</td>
-                <td>&nbsp;<br>&nbsp;</td>
-                <td>&nbsp;<br>&nbsp;</td>
-            </tr>
-            <tr>
-                <td style="text-align: center">Sukma Djaya Negara, SH., M.Hum</td>
                 <td>&nbsp;</td>
-                <td style="text-align: center">Wahyu Nugraha Efendi., SH., MH</td>
+                <td style="text-align: center">Pemilik Toko</td>
             </tr>
-        </table> --}}
+            <tr>
+                <td>&nbsp;<br>&nbsp;</td>
+                <td>&nbsp;<br>&nbsp;</td>
+                <td>&nbsp;<br>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td style="text-align: center">{{ auth()->user()->nama }}</td>
+            </tr>
+        </table>
     </div>
 </body>
 
