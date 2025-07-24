@@ -71,6 +71,7 @@
                         <th class="px-6 py-4">Nama Barang</th>
                         <th class="px-6 py-4">Nama Supplier</th>
                         <th class="px-6 py-4">Jumlah Keluar</th>
+                        <th class="px-6 py-4">Harga Barang</th>
                         <th class="px-6 py-4">Tanggal Keluar</th>
                     </tr>
                 </thead>
@@ -81,6 +82,7 @@
                             <td class="px-6 py-3">{{ $item->nama }}</td>
                             <td class="px-6 py-3">{{ $item->nama_supplier }}</td>
                             <td class="px-6 py-3">{{ $item->jumlah . ' ' . $item->satuan }}</td>
+                            <td class="px-6 py-3">Rp.{{ number_format($item->jumlah*$item->harga, 0, ',', '.') }}</td>
                             <td class="px-6 py-3">{{ $item->created_at->format('d-m-Y H:i') }}</td>
                         </tr>
                     @endforeach

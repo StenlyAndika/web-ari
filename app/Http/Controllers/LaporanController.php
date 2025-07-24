@@ -22,6 +22,7 @@ class LaporanController extends Controller
                         'barang_masuk.*',
                         'barang.nama',
                         'barang.satuan',
+                        'barang.harga',
                         'supplier.nama as nama_supplier'
                     )
                     ->whereMonth('barang_masuk.updated_at', '=', date('m', strtotime($bln)))
@@ -39,6 +40,7 @@ class LaporanController extends Controller
                         'barang_masuk.*',
                         'barang.nama',
                         'barang.satuan',
+                        'barang.harga',
                         'supplier.nama as nama_supplier'
                     )
                     ->whereMonth('barang_masuk.updated_at', '=', date('m', strtotime($bln)))
@@ -66,6 +68,7 @@ class LaporanController extends Controller
                         'barang_keluar.*',
                         'barang.nama',
                         'barang.satuan',
+                        'barang.harga',
                         'barang.stok',
                         'supplier.nama as nama_supplier'
                     )
@@ -85,6 +88,7 @@ class LaporanController extends Controller
                         'barang_keluar.*',
                         'barang.nama',
                         'barang.satuan',
+                        'barang.harga',
                         'barang.stok',
                         'supplier.nama as nama_supplier'
                     )

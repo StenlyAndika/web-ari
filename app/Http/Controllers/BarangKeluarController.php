@@ -41,6 +41,9 @@ class BarangKeluarController extends Controller
 
         //Update stok barang
         $stok = Barang::where('id', $request->id_barang)->first()->stok;
+        if ($stok < $request->jumlah) {
+            return back()->with('toast_error', 'Stok barang tidak mencukupi!');
+        }
         $sisa = $stok - $request->jumlah;
 
         Barang::where('id', $request->id_barang)->update(['stok' => $sisa]);

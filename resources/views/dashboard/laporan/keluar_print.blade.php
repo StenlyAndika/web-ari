@@ -70,6 +70,7 @@
                     <th>Nama Barang</th>
                     <th>Nama Supplier</th>
                     <th>Jumlah Keluar</th>
+                    <th>Harga Barang</th>
                     <th>Stok</th>
                     <th>Tanggal Keluar</th>
                 </tr>
@@ -91,6 +92,9 @@
                         </td>
                         <td>
                             {{ $item->jumlah . ' ' . $item->satuan }}
+                        </td>
+                        <td>
+                            Rp.{{ number_format($item->jumlah*$item->harga, 0, ',', '.') }}
                         </td>
                         <td>
                             {{ $item->updated_at->format('d-m-Y H:i') }}
