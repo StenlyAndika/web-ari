@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Carbon\Carbon;
+use App\Models\Barang;
 use App\Models\BarangMasuk;
 use App\Models\BarangKeluar;
 use Illuminate\Http\Request;
@@ -102,5 +103,32 @@ class LaporanController extends Controller
         $a = Carbon::parse($bln)->format('m-Y');
 
         return $pdf->download('Laporan-Barang-Keluar-'. $a .'.pdf');
+    }
+
+    public function stok(Request $request)
+    {
+        $bln = $request->input('monthPicker') ?? '0';
+        return view('dashboard.laporan.stok', [
+            'title' => 'Laporan Stok Barang',
+            'bln' => $bln,
+            'barang' => Barang::whereMonth('updated_at', '=', date('m', strtotime($bln)))
+                    ->whereYear('updated_at', '=', date('Y', strtotime($bln)))
+                    ->orderBy('nama', 'asc')
+                    ->get(),
+        ]);
+    }
+
+    public function stok_print($bln) {
+
+        $barang = Barang::whereMonth('updated_at', '=', date('m', strtotime($bln)))
+                    ->whereYear('updated_at', '=', date('Y', strtotime($bln)))
+                    ->orderBy('nama', 'asc')
+                    ->get();
+
+        $pdf = PDF::loadView('dashboard.laporan.stok_print', ['barang' => $barang, 'bln' => $bln]);
+        $pdf->setPaper('A4', 'portrait');
+        $a = Carbon::parse($bln)->format('m-Y');
+
+        return $pdf->download('Laporan-Stok-Barang-'. $a .'.pdf');
     }
 }

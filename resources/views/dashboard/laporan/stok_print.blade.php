@@ -55,7 +55,7 @@
                 <td><img src="img/tablogo.png" width="100px"></td>
                 <td class="tengah">
                     <h3>TOKO IWEL</h3>
-                    <h3>LAPORAN BARANG MASUK</h3>
+                    <h3>LAPORAN STOK BARANG</h3>
                 </td>
             </tr>
         </table>
@@ -68,14 +68,12 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Barang</th>
-                    <th>Nama Supplier</th>
-                    <th>Jumlah Masuk</th>
-                    <th>Harga Barang</th>
-                    <th>Tanggal Masuk</th>
+                    <th>Stok Barang</th>
+                    <th>Tanggal Update</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($barang_masuk as $item)
+                @foreach ($barang as $item)
                     <tr>
                         <th>
                             {{ $loop->iteration }}
@@ -84,13 +82,7 @@
                             {{ $item->nama }}
                         </td>
                         <td>
-                            {{ $item->nama_supplier }}
-                        </td>
-                        <td>
-                            {{ $item->jumlah . ' ' . $item->satuan }}
-                        </td>
-                        <td>
-                            Rp.{{ number_format($item->jumlah*$item->harga, 0, ',', '.') }}
+                            {{ $item->stok . ' ' . $item->satuan }}
                         </td>
                         <td>
                             {{ $item->updated_at->format('d-m-Y H:i') }}

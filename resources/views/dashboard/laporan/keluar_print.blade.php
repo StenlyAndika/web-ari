@@ -88,16 +88,17 @@
                             {{ $item->nama_supplier }}
                         </td>
                         <td>
-                            {{ $item->stok }}
-                        </td>
-                        <td>
                             {{ $item->jumlah . ' ' . $item->satuan }}
                         </td>
                         <td>
                             Rp.{{ number_format($item->jumlah*$item->harga, 0, ',', '.') }}
                         </td>
                         <td>
+                            {{ $item->stok . ' ' . $item->satuan }}
+                        </td>
+                        <td>
                             {{ $item->updated_at->format('d-m-Y H:i') }}
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

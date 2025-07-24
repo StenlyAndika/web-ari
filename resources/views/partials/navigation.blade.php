@@ -90,6 +90,10 @@
                     x-collapse
                     class="ml-6 mt-1 space-y-1"
                 >
+                    <a href="{{ route('admin.laporan.stok') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/laporan/stok*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
+                        <i class="material-icons mr-3 text-base">description</i>
+                        Laporan Stok Barang
+                    </a>
                     <a href="{{ route('admin.laporan.masuk') }}" class="flex items-center px-3 py-2 rounded-md cursor-pointer text-gray-700 font-medium text-sm transition-colors {{ Request::is('admin/laporan/masuk*') ? 'bg-primary text-white' : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-500' }}">
                         <i class="material-icons mr-3 text-base">description</i>
                         Laporan Barang Masuk

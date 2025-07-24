@@ -54,6 +54,8 @@ Route::middleware(['operator'])->group(function () {
     Route::put('/admin/barang/keluar/{id}', [BarangKeluarController::class, 'update'])->name('admin.barang.keluar.update');
     Route::delete('/admin/barang/keluar/{id}', [BarangKeluarController::class, 'destroy'])->name('admin.barang.keluar.destroy');
 
+    Route::get('/admin/laporan/stok', [LaporanController::class, 'stok'])->name('admin.laporan.stok');
+    Route::get('/admin/laporan/stok/print/{bln}', [LaporanController::class, 'stok_print'])->name('admin.laporan.stok.print');
     Route::get('/admin/laporan/masuk', [LaporanController::class, 'masuk'])->name('admin.laporan.masuk');
     Route::get('/admin/laporan/masuk/print/{bln}', [LaporanController::class, 'masuk_print'])->name('admin.laporan.masuk.print');
     Route::get('/admin/laporan/keluar', [LaporanController::class, 'keluar'])->name('admin.laporan.keluar');
